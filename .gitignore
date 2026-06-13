@@ -19,30 +19,33 @@ mono_crash.*
 
 # Build results
 [Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
+MedicineApi/[Dd]ebug/
+MedicineApi/[Dd]ebugPublic/
+MedicineApi/[Rr]elease/
+MedicineApi/[Rr]eleases/
 
-[Dd]ebug/x64/
-[Dd]ebugPublic/x64/
-[Rr]elease/x64/
-[Rr]eleases/x64/
-bin/x64/
-obj/x64/
+MedicineApi/[Dd]ebug/x64/
+MedicineApi/[Dd]ebugPublic/x64/
+MedicineApi/[Rr]elease/x64/
+MedicineApi/[Rr]eleases/x64/
+MedicineApi/bin/x64/
+MedicineApi/obj/x64/
 
-[Dd]ebug/x86/
-[Dd]ebugPublic/x86/
-[Rr]elease/x86/
-[Rr]eleases/x86/
-bin/x86/
-obj/x86/
+MedicineApi/MedicineApi/[Dd]ebug/x86/
+MedicineApi/[Dd]ebugPublic/x86/
+MedicineApi/[Rr]elease/x86/
+MedicineApi/[Rr]eleases/x86/
+MedicineApi/bin/x86/
+MedicineApi/obj/x86/
+
+MedicineApi/[Dd]ebug/net10.0/
 
 [Ww][Ii][Nn]32/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 [Aa][Rr][Mm]64[Ee][Cc]/
 bld/
-[Oo]bj/
+MedicineApi/[Oo]bj/
 [Oo]ut/
 [Ll]og/
 [Ll]ogs/
@@ -427,3 +430,4 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+MedicineApi/obj/*
