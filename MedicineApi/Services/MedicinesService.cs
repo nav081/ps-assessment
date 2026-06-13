@@ -65,7 +65,7 @@ namespace MedicineApi.Services
             var med = list.FirstOrDefault(x => x.Id == id);
 
             if (med == null) return new Medicine{ FullName = "", Brand = ""};
-
+            if(med.Quantity < 1) return new Medicine{ FullName = "", Brand = ""};
             med.Quantity -= quantity;
             _storage.SaveAll(list);
 
