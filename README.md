@@ -104,8 +104,3 @@ Open a separate terminal window, navigate to your backend project directory, and
 ```Bash
 dotnet run
 ```
-
-
-```Bash
-REACT_APP_API_URL=http://localhost:5297/api
-```
