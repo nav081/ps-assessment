@@ -1,13 +1,54 @@
-# Assesment
+# 🏥 ABC Pharmacy Management System
 
-This repository contains mainly two folders MedicineApi & MedicineUi.
+A responsive Single Page Application (SPA) designed to manage medicine inventory, track stock levels, and seamlessly handle sales. 
 
-## MedicineApi
+---
 
-Folder Structure
+## 🚀 Tech Stack
 
-```bash
-MedicineApi/
+### Frontend
+* **Framework:** React + TypeScript
+* **UI Component Library:** Material UI (MUI)
+* **HTTP Client:** Axios
+
+### Backend
+* **Framework:** .NET Core Web API
+* **Validation:** FluentValidation (for robust request validation)
+* **Storage:** JSON file storage (lightweight persistence)
+
+---
+
+## ✅ Features & Highlights
+
+* **Core Inventory Actions:** Add medicines, view the medicine list, and search inventory.
+* **Sales Tracking:** Sell medicines directly from the UI, automatically reducing the stock quantity.
+* **Business Rules Engine:**
+  * 🔴 **Expiry < 30 days:** Rows/Cards are highlighted in **Red**.
+  * 🟡 **Quantity < 10:** Rows/Cards are highlighted in **Yellow**.
+* **Responsive UI Design:** Utilizes an MUI `DataGrid` for desktop screens and dynamically switches to a clean `Card` layout for mobile devices.
+* **User Experience:** Implements global loaders for API calls and toast notifications for success/error states.
+* **Robust Backend:** Built with a clean separation of concerns, centralized error handling, and file-based JSON persistence.
+
+---
+
+## 📂 Project Structure
+
+### Frontend (`medicine-ui`)
+```text
+src/
+ ├── components/
+ │    ├── AddMedicine.tsx
+ │    └── MedicineList.tsx
+ ├── types/
+ │    └── types.ts
+ ├── services/
+ │    └── api.ts
+ └── App.tsx
+```
+
+### Backend (`MedicinesApi`)
+
+```text
 ├── Controllers/
 │   └── MedicineController.cs
 ├── Models/
@@ -30,25 +71,33 @@ MedicineApi/
 └── Program.cs
 ```
 
-## Usage MedicineApi
+## ⚙️ Setup Instructions
 
-```python
-dotnet run
+Follow these steps to get your local development environment up and running.
 
-# Output
-Building...
-info: Microsoft.Hosting.Lifetime[14]
-      Now listening on: http://localhost:5297
-info: Microsoft.Hosting.Lifetime[0]
-      Application started. Press Ctrl+C to shut down.
-info: Microsoft.Hosting.Lifetime[0]
-      Hosting environment: Development
-info: Microsoft.Hosting.Lifetime[0]
-      Content root path: C:\..\..\PS\MedicineApi
-info: Microsoft.Hosting.Lifetime[0]
-      Application is shutting down...
+### 1️⃣ Clone the Repository
+```bash
+git clone <repo-url>
+cd medicine-ui
+```
+### 2️⃣ Setup Frontend
+Navigate to the frontend directory (if separate) or stay in the medicine-ui root, then run:
+
+```Bash
+npm install
+npm start
 ```
 
-## Contributing
+### 3️⃣ Setup Backend
+Open a separate terminal window, navigate to your backend project directory, and spin up the .NET Core Web API:
+```Bash
+dotnet run
+```
 
-Pull Request and Comments are welcome
+### 4️⃣ Environment Configuration
+Create a .env file in the root of your frontend project and add the backend API URL connection string:
+
+```Bash
+Code snippet
+REACT_APP_API_URL=http://localhost:5297/api/Medicines
+```
