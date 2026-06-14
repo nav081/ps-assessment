@@ -38,6 +38,7 @@ A responsive Single Page Application (SPA) designed to manage medicine inventory
 src/
  ├── components/
  │    ├── AddMedicine.tsx
+ │    ├── SalesDialog.tsx
  │    └── MedicineList.tsx
  ├── types/
  │    └── types.ts
@@ -50,14 +51,17 @@ src/
 
 ```text
 ├── Controllers/
+│   ├── SalesController.cs
 │   └── MedicineController.cs
 ├── Models/
 │   └── Medicine.cs
 ├── Services/
 │   ├── Interfaces
 │   │   ├── IMedicineService.cs
+│   │   ├── ISalesService.cs
 │   │   └── IStorageService.cs
-│   ├── MedicineService.cs 
+│   ├── MedicineService.cs
+│   ├── SalesService.cs 
 │   └── StorageService.cs 
 ├── Ioc/
 │   └── ServicesExtensions.cs
@@ -68,6 +72,7 @@ src/
 │   │   └── MedicineValidationExtensions.cs
 │   └── MedicineValidator.cs
 ├── medicines.json
+├── sales.json
 └── Program.cs
 ```
 
