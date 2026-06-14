@@ -83,7 +83,7 @@ Follow these steps to get your local development environment up and running.
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone <repo-url>
+git clone [<repo-url>](https://github.com/nav081/ps-assessment.git)
 cd medicine-ui
 ```
 ### 2️⃣ Setup Frontend
