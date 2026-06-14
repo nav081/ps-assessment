@@ -83,7 +83,7 @@ Follow these steps to get your local development environment up and running.
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone [<repo-url>](https://github.com/nav081/ps-assessment.git)
+git clone https://github.com/nav081/ps-assessment.git
 cd medicine-ui
 ```
 ### 2️⃣ Setup Frontend
@@ -93,15 +93,16 @@ Navigate to the frontend directory (if separate) or stay in the medicine-ui root
 npm install
 npm start
 ```
+### 3️⃣ Environment Configuration
+Create a .env file in the root of your frontend project and add the backend API URL connection string:
+```
 
-### 3️⃣ Setup Backend
+### 4️⃣ Setup Backend
 Open a separate terminal window, navigate to your backend project directory, and spin up the .NET Core Web API:
 ```Bash
 dotnet run
 ```
 
-### 4️⃣ Environment Configuration
-Create a .env file in the root of your frontend project and add the backend API URL connection string:
 
 ```Bash
 REACT_APP_API_URL=http://localhost:5297/api
