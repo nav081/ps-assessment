@@ -33,16 +33,5 @@ namespace MedicineApi.Controllers{
                 return BadRequest(response.errors);
             }
         }
-
-        
-        [HttpPost("sell/{id}")]
-        public IActionResult Sell(int id, [FromQuery] int qty)
-        {
-            var updatedMedicine = _medicinesService.Sell(id, qty);
-            if(updatedMedicine.FullName == ""){
-                return NotFound();
-            }
-            return Ok(updatedMedicine);
-        }
     }
 }

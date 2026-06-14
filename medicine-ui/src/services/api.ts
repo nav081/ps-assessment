@@ -68,7 +68,7 @@ const handleError = (error: any) => {
 // API methods
 export const getMedicines = async (search = ""): Promise<Medicine[]> => {
   try {
-    const res = await api.get(`?search=${search}`);
+    const res = await api.get(`/Medicines?search=${search}`);
     return res.data;
   } catch (err) {
     handleError(err);
@@ -78,18 +78,29 @@ export const getMedicines = async (search = ""): Promise<Medicine[]> => {
 
 export const addMedicine = async (data: Medicine) => {
   try {
-    await api.post("", data);
+    await api.post("/Medicines", data);
     toast.success("Medicine added successfully");
   } catch (err) {
     handleError(err);
   }
 };
 
-export const sellMedicine = async (id: number) => {
+
+export const sellMedicine = async (id: number, qty = 1) => {
   try {
-    await api.post(`/sell/${id}?qty=1`);
-    toast.success("Sold successfully");
+    await api.post(`/Sales/medicine/${id}?qty=${qty}`);
+    toast.success("Sold successfully ✅");
   } catch (err) {
     handleError(err);
+  }
+};
+
+export const getSales = async (search = "") => {
+  try {
+    const res = await api.get(`/Sales?search=${search}`);
+    return res.data;
+  } catch (err) {
+    handleError(err);
+    return [];
   }
 };

@@ -18,6 +18,11 @@ namespace MedicineApi.Ioc
             service.AddScoped<IMedicinesService, MedicinesService>();
         }
 
+        public static void AddSalesServices(this IServiceCollection service)
+        {
+            service.AddScoped<ISalesService, SalesService>();
+        }
+
         public static void AddCustomValidators(this IServiceCollection service)
         {
             service.AddScoped<IValidator<MedicineValidationModel>, MedicineValidator>();

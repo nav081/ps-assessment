@@ -13,6 +13,7 @@ import {
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { getMedicines, sellMedicine } from "../services/api";
 import { Medicine } from "../types/types";
+import SalesDialog from "../components/SalesDialog";
 
 interface Props {
   reload: boolean;
@@ -22,6 +23,7 @@ const MedicineList: React.FC<Props> = ({ reload }) => {
   const [data, setData] = useState<Medicine[]>([]);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
+  const [salesDialogOpen, setSalesDialogOpen] = useState(false);
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -142,6 +144,14 @@ const MedicineList: React.FC<Props> = ({ reload }) => {
           Search
         </Button>
       </Box>
+      
+      <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
+        <Typography variant="h5">Medicines Inventory</Typography>
+        <Button variant="outlined" onClick={() => setSalesDialogOpen(true)}>
+          View Sales History
+        </Button>
+      </Box>
+
 
       {/* ✅ LOADER */}
       {loading ? (
@@ -229,7 +239,14 @@ const MedicineList: React.FC<Props> = ({ reload }) => {
           }
         `}
       </style>
+      
+    <SalesDialog
+      open={salesDialogOpen}
+      onClose={() => setSalesDialogOpen(false)}
+    />
+
     </Box>
+    
   );
 };
 

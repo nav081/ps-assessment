@@ -6,5 +6,7 @@ namespace MedicineApi.Services.Interfaces
     { 
         List<Medicine> GetAll();
         void SaveAll(List<Medicine> medicines);
+        List<SaleRecord> GetAllSales();
+        void Sell(SaleRecord saleRecord);
     }
 }

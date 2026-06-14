@@ -6,6 +6,5 @@ namespace MedicineApi.Services.Interfaces
     { 
         List<Medicine> GetAll(string search);
         (bool isCorrect, List<string> errors) Add(Medicine med);
-        Medicine Sell(int id, int quantity);
     }
 }

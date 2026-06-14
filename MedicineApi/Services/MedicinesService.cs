@@ -9,12 +9,14 @@ namespace MedicineApi.Services
     {
         private readonly ILogger<MedicinesService> _logger;
         private readonly IStorageService _storage;
+        private readonly ISalesService _salesService;
         private readonly IValidator<MedicineValidationModel> _validator;
 
-        public MedicinesService(ILogger<MedicinesService> logger,IStorageService storage, IValidator<MedicineValidationModel> validator)
+        public MedicinesService(ILogger<MedicinesService> logger,IStorageService storage, ISalesService salesService, IValidator<MedicineValidationModel> validator)
         {
             _logger = logger;
             _storage = storage;
+            _salesService = salesService;
             _validator = validator;
         }
 
@@ -27,6 +29,8 @@ namespace MedicineApi.Services
                     return _storage.GetAll();
                 }
                 var list = _storage.GetAll();
+
+                //filter the list based on search
                 return list.Where(x => x.FullName.ToLower().Contains(search.ToLower())).ToList();
             }
             catch (Exception er)
@@ -42,9 +46,11 @@ namespace MedicineApi.Services
             {
                 var list = _storage.GetAll();
 
+                //validate the medicine
                 var validateModel = _validator.Validate(new MedicineValidationModel(med,list));
                 if (!validateModel.IsValid) return (false, validateModel.Errors.Select(x => x.ErrorMessage).ToList());
                 
+                //add the medicine
                 med.Id = list.Count + 1;
                 list.Add(med);
 
@@ -56,19 +62,6 @@ namespace MedicineApi.Services
                 _logger.LogError(er, "error in MedicinesService_Add");
                 throw;
             }
-        }
-
-        public Medicine Sell(int id, int quantity)
-        {
-            var list = _storage.GetAll();
-            var med = list.FirstOrDefault(x => x.Id == id);
-
-            if (med == null) return new Medicine{ FullName = "", Brand = ""};
-            if(med.Quantity < 1) return new Medicine{ FullName = "", Brand = ""};
-            med.Quantity -= quantity;
-            _storage.SaveAll(list);
-
-            return med;
         }
     }
 }

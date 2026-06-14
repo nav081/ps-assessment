@@ -8,6 +8,7 @@ builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 builder.Services.AddDataServices();
 builder.Services.AddMedicinesServices();
+builder.Services.AddSalesServices();
 builder.Services.AddCustomValidators();
 
 //CORS configuration
