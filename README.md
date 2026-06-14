@@ -98,5 +98,5 @@ dotnet run
 Create a .env file in the root of your frontend project and add the backend API URL connection string:
 
 ```Bash
-REACT_APP_API_URL=http://localhost:5297/api/Medicines
+REACT_APP_API_URL=http://localhost:5297/api
 ```
