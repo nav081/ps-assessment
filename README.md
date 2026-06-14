@@ -1,74 +1,54 @@
-🏥 ABC Pharmacy Management System
-A responsive Single Page Application (SPA) to manage medicine inventory, track stock, and handle sales.
+# 🏥 ABC Pharmacy Management System
 
-🚀 Tech Stack
-Frontend
+A responsive Single Page Application (SPA) designed to manage medicine inventory, track stock levels, and seamlessly handle sales. 
 
-React + TypeScript
-Material UI (MUI)
-Axios
+---
 
-Backend
+## 🚀 Tech Stack
 
-.NET Core Web API
-FluentValidation (for request validation)
-JSON file storage
+### Frontend
+* **Framework:** React + TypeScript
+* **UI Component Library:** Material UI (MUI)
+* **HTTP Client:** Axios
 
+### Backend
+* **Framework:** .NET Core Web API
+* **Validation:** FluentValidation (for robust request validation)
+* **Storage:** JSON file storage (lightweight persistence)
 
-✅ Features
+---
 
-Add medicines
-View medicines list
-Sell medicines (reduce quantity)
-Search medicines
+## ✅ Features & Highlights
 
+* **Core Inventory Actions:** Add medicines, view the medicine list, and search inventory.
+* **Sales Tracking:** Sell medicines directly from the UI, automatically reducing the stock quantity.
+* **Business Rules Engine:**
+  * 🔴 **Expiry < 30 days:** Rows/Cards are highlighted in **Red**.
+  * 🟡 **Quantity < 10:** Rows/Cards are highlighted in **Yellow**.
+* **Responsive UI Design:** Utilizes an MUI `DataGrid` for desktop screens and dynamically switches to a clean `Card` layout for mobile devices.
+* **User Experience:** Implements global loaders for API calls and toast notifications for success/error states.
+* **Robust Backend:** Built with a clean separation of concerns, centralized error handling, and file-based JSON persistence.
 
-📊 Business Rules
+---
 
-🔴 Expiry < 30 days → Red highlight
-🟡 Quantity < 10 → Yellow highlight
+## 📂 Project Structure
 
-
-💻 UI Highlights
-
-Responsive design (Mobile + Desktop)
-DataGrid (desktop view)
-Card layout (mobile view)
-Toast notifications for errors & success
-Loader for API calls
-
-
-🔧 Backend Highlights
-
-RESTful API using .NET Core
-Data stored in JSON file (lightweight persistence)
-Centralized error handling
-FluentValidation used for input validation
-
-
-✅ Validation (FluentValidation)
-Backend validations include:
-
-Required fields (medicine name, brand, expiry, etc.)
-Valid date format
-Quantity > 0
-Price > 0
-
-
-📂 Project Structure
-medicine-ui
+### Frontend (`medicine-ui`)
+```text
 src/
  ├── components/
  │    ├── AddMedicine.tsx
  │    └── MedicineList.tsx
- ├── types
+ ├── types/
  │    └── types.ts
  ├── services/
  │    └── api.ts
  └── App.tsx
+```
 
+### Backend (`MedicinesApi`)
 
-Backend
+```text
 ├── Controllers/
 │   └── MedicineController.cs
 ├── Models/
@@ -89,74 +69,35 @@ Backend
 │   └── MedicineValidator.cs
 ├── medicines.json
 └── Program.cs
+```
 
+## ⚙️ Setup Instructions
 
-⚙️ Setup Instructions
+Follow these steps to get your local development environment up and running.
 
-1️⃣ Clone Repository
-Shellgit clone <repo-url>cd medicine-uiShow more lines
+### 1️⃣ Clone the Repository
+```bash
+git clone <repo-url>
+cd medicine-ui
+```
+### 2️⃣ Setup Frontend
+Navigate to the frontend directory (if separate) or stay in the medicine-ui root, then run:
 
-2️⃣ Setup Frontend
-Shellnpm installnpm startShow more lines
+```Bash
+npm install
+npm start
+```
 
-3️⃣ Setup Backend
-Shelldotnet runShow more lines
+### 3️⃣ Setup Backend
+Open a separate terminal window, navigate to your backend project directory, and spin up the .NET Core Web API:
+```Bash
+dotnet run
+```
 
-4️⃣ Environment Configuration
-Create .env file:
-Plain Textenv isn’t fully supported. Syntax highlighting is based on Plain Text.REACT_APP_API_URL=http://localhost:5000/api/medicinesShow more lines
+### 4️⃣ Environment Configuration
+Create a .env file in the root of your frontend project and add the backend API URL connection string:
 
-🔌 API Endpoints
-
-Method         Endpoint                    Description
-GET            /api/medicines                  Get all medicines
-POST           /api/medicines                  Add medicine
-POST           /api/medicines/sell/{id}        Sell medicine
-
-❗ Error Handling
-
-FluentValidation handles request validation
-UI handles:
-
-Validation errors
-Business errors
-API errors
-
-
-404 → "Inventory not found"
-
-📱 UI Behavior
-Desktop
-
-DataGrid table
-Row color coding
-
-Mobile
-
-Card layout
-Full-width UI
-
-
-🧹 Clean Before Upload
-Remove unnecessary files:
-node_modules/
-package-lock.json
-bin/
-obj/
-
-
-🚀 Future Improvements
-
-Edit / Delete medicine
-Lazy Loading
-Filters (Low stock / Expiring)
-Dashboard analytics
-Authentication system
-
-⭐ Highlights
-
-Clean architecture (frontend + backend separation)
-FluentValidation for robust backend validation
-Responsive UI design
-Business rule implementation
-Scalable structure
+```Bash
+Code snippet
+REACT_APP_API_URL=http://localhost:5297/api/Medicines
+```
