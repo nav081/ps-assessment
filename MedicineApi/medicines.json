@@ -7,5 +7,14 @@
     "Quantity": 0,
     "Price": 0,
     "Brand": ""
+  },
+  {
+    "Id": 2,
+    "FullName": "Lipvas",
+    "Notes": "testing",
+    "ExpiryDate": "2026-09-24T00:00:00",
+    "Quantity": 0,
+    "Price": 20,
+    "Brand": "Cipla"
   }
 ]

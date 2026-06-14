@@ -1,6 +1,4 @@
 using MedicineApi.Models;
-using System.Text.Json;
-using Microsoft.Extensions.Logging;
 using MedicineApi.Services.Interfaces;
 using FluentValidation;
 using MedicineApi.Validators.Models;
@@ -28,9 +26,10 @@ namespace MedicineApi.Services
                 {
                     return _storage.GetAll();
                 }
-                return _storage.GetAll();
+                var list = _storage.GetAll();
+                return list.Where(x => x.FullName.ToLower().Contains(search.ToLower())).ToList();
             }
-            catch (System.Exception er)
+            catch (Exception er)
             {
                 _logger.LogError(er, "error in MedicinesService_GetAll");
                 throw;
@@ -52,7 +51,7 @@ namespace MedicineApi.Services
                 _storage.SaveAll(list);
                 return (true, new List<string>());
             }
-            catch (System.Exception er)
+            catch (Exception er)
             {
                 _logger.LogError(er, "error in MedicinesService_Add");
                 throw;

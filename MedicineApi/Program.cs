@@ -10,7 +10,19 @@ builder.Services.AddDataServices();
 builder.Services.AddMedicinesServices();
 builder.Services.AddCustomValidators();
 
+//CORS configuration
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigins", policy =>
+    {
+        policy.WithOrigins("https://localhost:3000", "http://localhost:3000")
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -20,5 +32,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
+app.UseCors("AllowSpecificOrigins");
 app.MapControllers();
 app.Run();

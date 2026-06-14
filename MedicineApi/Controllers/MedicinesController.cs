@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using MedicineApi.Services.Interfaces;
 using MedicineApi.Models;
 
@@ -9,12 +8,10 @@ namespace MedicineApi.Controllers{
     [Route("api/[controller]")]
     public class MedicinesController : ControllerBase
     {
-        private readonly ILogger<MedicinesController> _logger;
         private readonly IMedicinesService _medicinesService;
 
-        public MedicinesController(ILogger<MedicinesController> logger,IMedicinesService medicinesService)
+        public MedicinesController(IMedicinesService medicinesService)
         {
-            _logger = logger;
             _medicinesService = medicinesService;
         }
 

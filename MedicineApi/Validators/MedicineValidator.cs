@@ -21,10 +21,10 @@ namespace MedicineApi.Validators
                .WithMessage("Please check price again");
 
             RuleFor(o => o.ValidateExpiry()).NotEqual(false)
-               .WithMessage("Please check price again");
+               .WithMessage("Please check expiry date again");
 
             RuleFor(o => o.ValidateAlreadyExists()).NotEqual(false)
-               .WithMessage("Medicine Already Exists");
+               .WithMessage("Medicine already Exists");
         }
     }
 }
