@@ -95,6 +95,8 @@ npm start
 ```
 ### 3️⃣ Environment Configuration
 Create a .env file in the root of your frontend project and add the backend API URL connection string:
+```Bash
+REACT_APP_API_URL=http://localhost:5297/api
 ```
 
 ### 4️⃣ Setup Backend
