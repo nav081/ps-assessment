@@ -54,6 +54,7 @@ src/
 │   ├── SalesController.cs
 │   └── MedicineController.cs
 ├── Models/
+│   ├── SaleRecord.cs
 │   └── Medicine.cs
 ├── Services/
 │   ├── Interfaces
